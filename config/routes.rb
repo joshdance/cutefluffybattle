@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :players
+
   get "about" => "pages#about"
 
   get 'pages/home'
