@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  resources :players
+
+  resources :players do
+    member do
+      post 'upvote'
+    end
+  end
 
   get "about" => "pages#about"
 

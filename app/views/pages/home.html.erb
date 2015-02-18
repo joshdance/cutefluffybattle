@@ -1,4 +1,7 @@
 <h1>CuteFluffyBattle</h1>
 <p>Which is cuter?</p>
 
-image or image
+
+<%= link_to image_tag(@player1.image.url(:medium)), upvote_player_path(@player1), method: :post %>
+ or 
+<%= link_to image_tag(@player2.image.url(:medium)), upvote_player_path(@player2), method: :post %>

@@ -61,6 +61,20 @@ class PlayersController < ApplicationController
     end
   end
 
+  def upvote
+    @player = Player.find(params[:id])
+    @player.increment(:wins)
+    @player.save
+    calc_win_percentage(@player)
+    redirect_to :back
+  end
+
+  def calc_win_percentage(player)
+    player.win_percentage = player.wins.fdiv(player.matches)
+    player.save
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_player

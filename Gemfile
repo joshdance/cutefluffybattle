@@ -25,6 +25,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'paperclip', '~> 4.2' #handles image uploads
 
+gem 'seed_dump' #allows me to create a seed database
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
