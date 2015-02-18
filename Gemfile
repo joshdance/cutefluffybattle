@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.1'
+gem 'rails', '4.2.0'
 
 group :development, :test do
      gem 'sqlite3'
@@ -35,7 +35,7 @@ gem 'paperclip', '~> 4.2' #handles image uploads
 
 gem 'seed_dump' #allows me to create a seed database
 
-gem 'aws-sdk', '~> 1.20.0'
+gem 'aws-sdk'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
