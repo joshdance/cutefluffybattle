@@ -1,4 +1,4 @@
-Rails.application.configure do
+Cutefluffybattle::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
@@ -77,7 +77,6 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-=begin
   # config/environments/production.rb - this makes paperclip work on Heroku
   config.paperclip_defaults = {
     :storage => :s3,
@@ -87,7 +86,6 @@ Rails.application.configure do
       :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
     }
   }
-=end
 
 
 end
