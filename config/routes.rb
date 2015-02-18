@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
 
   get "about" => "pages#about"
+  get "champion" => "pages#champion"
 
   get 'pages/home'
 

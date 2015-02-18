@@ -14,4 +14,8 @@ class PagesController < ApplicationController
   def about
   end
 
+  def champion
+  	@champion = Player.order('win_percentage DESC').first
+  end
+
 end
