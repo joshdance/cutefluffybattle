@@ -37,6 +37,8 @@ gem 'seed_dump' #allows me to create a seed database
 
 gem 'aws-sdk', '< 2.0'
 
+gem 'bootstrap-sass'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
