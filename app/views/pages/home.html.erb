@@ -1,11 +1,22 @@
-<h1>CuteFluffyBattle</h1>
-<p>Which is cuter?</p>
 
 
-<%= link_to image_tag(@player1.image.url(:medium)), upvote_player_path(@player1), method: :post %>
- or 
-<%= link_to image_tag(@player2.image.url(:medium)), upvote_player_path(@player2), method: :post %>
+<div class="jumbotron">
+	<p>Which is cuter?</p>
 
-<div>
-	Want to see who the current <%= link_to "champion", champion_path %> is?
+	<div class="col-xs-6">
+	<%= link_to image_tag(@player1.image.url(:medium)), upvote_player_path(@player1), method: :post %>
+	</div>
+	 or 
+	 <div class="col-xs-6">
+	<%= link_to image_tag(@player2.image.url(:medium)), upvote_player_path(@player2), method: :post %>
+	</div>
+
+	<div>
+		Want to see who the current <%= link_to "champion", champion_path %> is?
+	</div>
+	</br>
+	</br>
+	<div>
+		Click here to <%= link_to "Get Email Updates", "http://eepurl.com/beIC91", class: "btn btn-primary" %> of the cutest fluffiest battles. 
+	</div>
 </div>
