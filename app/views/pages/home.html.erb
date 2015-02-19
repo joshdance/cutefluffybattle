@@ -1,21 +1,27 @@
-<div class="">
-	<p>Which is cuter?</p>
-</div>
-<div id="main-container" class="container">
-	<div class="row">
-		<div class="col-xs-6 pull-right">
-		<%= link_to(image_tag(@player1.image.url(:medium), :class=>"img-responsive"), upvote_player_path(@player1), method: :post) %>
-		</div>
-		<div class="col-xs-6">
-		<%= link_to(image_tag(@player2.image.url(:medium), :class=>"img-responsive"), upvote_player_path(@player2), method: :post) %>
-		</div>
-	</div> <!-- end div class row -->
-	<div id="champion" class="">
-		Want to see who the current <%= link_to "champion", champion_path %> is?
-	</div> <!-- end champion div -->
-	</br>
-	</br>
-	<div id="email" class="">
-		Click here to <%= link_to "Get Email Updates", "http://eepurl.com/beIC91", class: "btn btn-primary" %> of the cutest fluffiest battles. 
-	</div> <!-- end email div -->
-</div> <!-- end container div -->
+<div id="players">
+	<div class="center center-block">
+		<p>Which is cuter?</p>
+	</div>
+	<div id="main-container" class="container">
+		<div class="row">
+			<div class="col-xs-6">
+				<div class="pull-right box panel panel-default">
+					<%= link_to(image_tag(@player1.image.url(:medium), :class=>"img-responsive"), upvote_player_path(@player1), method: :post) %>
+				</div> <!-- end pull right -->
+			</div>
+			<div class="col-xs-6">
+				<div class="box panel panel-default">
+					<%= link_to(image_tag(@player2.image.url(:medium), :class=>"img-responsive"), upvote_player_path(@player2), method: :post) %>
+				</div> <!-- end box panel div -->
+			</div>
+		</div> <!-- end div class row -->
+		<div id="champion" class="center">
+			Want to see who the current <%= link_to "champion", champion_path %> is?
+		</div> <!-- end champion div -->
+		</br>
+		</br>
+		<div id="email" class="center">
+			Click here to <%= link_to "Get Email Updates", "http://eepurl.com/beIC91", class: "btn btn-primary" %> of the cutest fluffiest battles. 
+		</div> <!-- end email div -->
+	</div> <!-- end container div -->
+</div><!--  end players id div -->
