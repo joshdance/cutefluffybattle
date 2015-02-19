@@ -1,22 +1,30 @@
+/*<style type="text/css">
+	.col-xs-6 {
+		background-color: green;
+		color: white;
+		text-align: center;
+		outline: 1px dashed red;
+	}
+</style>*/
 
-
-<div class="jumbotron">
+<div class="">
 	<p>Which is cuter?</p>
-
-	<div class="col-xs-6">
-	<%= link_to image_tag(@player1.image.url(:medium)), upvote_player_path(@player1), method: :post %>
-	</div>
-	 or 
-	 <div class="col-xs-6">
-	<%= link_to image_tag(@player2.image.url(:medium)), upvote_player_path(@player2), method: :post %>
-	</div>
-
-	<div>
-		Want to see who the current <%= link_to "champion", champion_path %> is?
-	</div>
-	</br>
-	</br>
-	<div>
-		Click here to <%= link_to "Get Email Updates", "http://eepurl.com/beIC91", class: "btn btn-primary" %> of the cutest fluffiest battles. 
-	</div>
 </div>
+<div id="main-container" class="container">
+	<div class="row">
+		<div class="col-xs-6">
+		<%= link_to(image_tag(@player1.image.url(:medium), :class=>"img-responsive"), upvote_player_path(@player1), method: :post) %>
+		</div>
+		<div class="col-xs-6">
+		<%= link_to(image_tag(@player2.image.url(:medium), :class=>"img-responsive"), upvote_player_path(@player2), method: :post) %>
+		</div>
+	</div> <!-- end div class row -->
+	<div id="champion" class="">
+		Want to see who the current <%= link_to "champion", champion_path %> is?
+	</div> <!-- end champion div -->
+	</br>
+	</br>
+	<div id="email" class="">
+		Click here to <%= link_to "Get Email Updates", "http://eepurl.com/beIC91", class: "btn btn-primary" %> of the cutest fluffiest battles. 
+	</div> <!-- end email div -->
+</div> <!-- end container div -->
