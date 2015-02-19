@@ -1,4 +1,17 @@
-The current champion of the internet, the cutest, fluffiest of them all is:
-<div class="jumbotron">
-<%= image_tag(@champion.image.url(:medium)) %>
-</div>
+<div id="main-container" class="container">
+	<div class="row">
+		<div class="col-xs-12 center-block center">
+			The current champion of the internet, the cutest, fluffiest of them all is:
+		</div>
+	</div>
+	<div class="row row-centered">
+		<div class="col-xs-12">
+			<div class="box panel panel-default">
+				<%= (image_tag(@champion.image.url(:medium), :class=>"img-responsive")) %>
+				<div class="panel-body">
+					<%= @champion.name %>
+				</div>
+			</div> <!-- end pull right -->
+			</div> <!-- end column -->
+	</div> <!-- end row -->
+</div> <!-- end main container -->

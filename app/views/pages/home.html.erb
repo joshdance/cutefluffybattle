@@ -5,14 +5,25 @@
 	<div id="main-container" class="container">
 		<div class="row">
 			<div class="col-xs-6">
-				<div class="pull-right box panel panel-default">
-					<%= link_to(image_tag(@player1.image.url(:medium), :class=>"img-responsive"), upvote_player_path(@player1), method: :post) %>
-				</div> <!-- end pull right -->
+				<%= link_to(upvote_player_path(@player1), method: :post) do %>
+					<div class="pull-right box panel panel-default">
+						<%= (image_tag(@player1.image.url(:medium), :class=>"img-responsive")) %>
+						<div class="panel-body">
+							<%= @player1.name %>
+						</div>
+					</div> <!-- end pull right -->
+				<% end %> <!-- end link ruby block -->
 			</div>
+
 			<div class="col-xs-6">
-				<div class="box panel panel-default">
-					<%= link_to(image_tag(@player2.image.url(:medium), :class=>"img-responsive"), upvote_player_path(@player2), method: :post) %>
-				</div> <!-- end box panel div -->
+				<%= link_to(upvote_player_path(@player2), method: :post) do %>
+					<div class="pull-left box panel panel-default">
+						<%= (image_tag(@player2.image.url(:medium), :class=>"img-responsive")) %>
+						<div class="panel-body">
+							<%= @player2.name %>
+						</div>
+					</div> <!-- end pull left -->
+				<% end %> <!-- end link ruby block -->
 			</div>
 		</div> <!-- end div class row -->
 		<div id="champion" class="center">
