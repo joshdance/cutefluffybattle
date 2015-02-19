@@ -1,18 +1,9 @@
-/*<style type="text/css">
-	.col-xs-6 {
-		background-color: green;
-		color: white;
-		text-align: center;
-		outline: 1px dashed red;
-	}
-</style>*/
-
 <div class="">
 	<p>Which is cuter?</p>
 </div>
 <div id="main-container" class="container">
 	<div class="row">
-		<div class="col-xs-6">
+		<div class="col-xs-6 pull-right">
 		<%= link_to(image_tag(@player1.image.url(:medium), :class=>"img-responsive"), upvote_player_path(@player1), method: :post) %>
 		</div>
 		<div class="col-xs-6">
