@@ -1,4 +1,5 @@
 class PlayersController < ApplicationController
+  before_filter :authenticate_user!, :except => [:show, :index]  
   before_action :set_player, only: [:show, :edit, :update, :destroy]
 
   # GET /players

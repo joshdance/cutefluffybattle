@@ -9,6 +9,7 @@ class PagesController < ApplicationController
   	@player1.save
   	@player2.increment(:matches)
   	@player2.save
+
   end
 
   def about
