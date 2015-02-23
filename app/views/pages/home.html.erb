@@ -1,6 +1,12 @@
 <% if user_signed_in? %>
 	<!-- do something -->
 <% else %>
+
+	<div class="beta-warning alert alert-warning center">
+	    <a href="#" class="close" data-dismiss="alert">&times;</a>
+	    Early Beta: Things can and will change, and break. <%= link_to "Enter your email here,", "http://eepurl.com/beIC91" %> to get news and email updates. 
+	</div>
+
 	<div class="jumbotron center">
     	<h1>Let the battle begin!</h1>
 		<p>
@@ -8,7 +14,7 @@
 			<%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary btn-lg" %>
 		</p>
 	</div>
-<% end %>  
+<% end %>  <!-- end not logged in else -->
 
 	<div class="center center-block">
 		<p>Which is cuter?</p>
