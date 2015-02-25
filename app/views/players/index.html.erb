@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Image</th>
       <th>Name</th>
       <th>Wins</th>
       <th>Matches</th>
@@ -17,6 +18,7 @@
   <tbody>
     <% @players.each do |player| %>
       <tr>
+        <td><%= image_tag player.image.url(:medium) %></td>
         <td><%= player.name %></td>
         <td><%= player.wins %></td>
         <td><%= player.matches %></td>
