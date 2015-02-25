@@ -27,13 +27,5 @@
 	<%= @player.user.name %>
 </p>
 
-<p>
-  flagged = <%= @player.flagged %>
-</p>
-
-<p>
-  flagged by = <%= User.find_by(@player.flagged_by_user_id).email %>
-</p>
-
 <%= link_to 'Edit', edit_player_path(@player) %> |
 <%= link_to 'Back', players_path %>

@@ -19,9 +19,6 @@ class PlayersController < ApplicationController
   # GET /players/new
   def new
     #this makes the new pin
-
-    @user = current_user
-
     @player = current_user.players.build
   end
 
