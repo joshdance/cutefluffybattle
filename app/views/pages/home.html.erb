@@ -16,46 +16,68 @@
 	</div>
 <% end %>  <!-- end not logged in else -->
 
-	<div class="center center-block">
-		<p>Which is cuter?</p>
-	</div>
-	<div id="main-container" class="container">
-		<div class="row">
-			<div class="col-xs-6">
-				<%= link_to(upvote_player_path(@player1), method: :post) do %>
-					<div class="pull-right panel panel-default">
-						<%= (image_tag(@player1.image.url(), :class=>"img-responsive")) %>
-						<div class="panel-body">
-							<%= @player1.name %> 
-							<%= link_to(flag_player_path(@player1), method: :post, data: { confirm: 'Are you sure you want to flag this image as offensive, or against our rules?  This image will be removed from all battles until a moderator reviews it.' }) do %>
-								<span class="glyphicon glyphicon-flag"></span>
-							<% end %> <!-- end of link to fla -->
-						</div>
-					</div> <!-- end pull right -->
-				<% end %> <!-- end link ruby block -->
-			</div>
+<div class="center center-block">
+	<p>Which is cuter?</p>
+</div>
 
-			<div class="col-xs-6">
-				<%= link_to(upvote_player_path(@player2), method: :post) do %>
-					<div class="pull-left panel panel-default">
-						<%= (image_tag(@player2.image.url(), :class=>"img-responsive")) %>
-						<div class="panel-body">
-							<%= @player2.name %> 
-							<%= link_to(flag_player_path(@player2), method: :post, data: { confirm: 'Are you sure you want to flag this image as offensive, or against our rules?  This image will be removed from all battles until a moderator reviews it.' }) do %>
-								<span class="glyphicon glyphicon-flag"></span>
-							<% end %> <!-- end of link to fla -->
-						</div>
-					</div> <!-- end pull left -->
-				<% end %> <!-- end link ruby block -->
-			</div>
-		</div> <!-- end div class row -->
-		<div id="champion" class="center">
-			Want to see who the current <%= link_to "champion", champion_path %> is?
-		</div> <!-- end champion div -->
-		</br>
-		</br>
-		<div id="email" class="center">
-			Click here to <%= link_to "Get Email Updates", "http://eepurl.com/beIC91", class: "btn btn-primary" %> of the cutest fluffiest battles. 
-		</div> <!-- end email div -->
-		</br>
-	</div> <!-- end container div -->
+<div id="main-container" class="container">
+	<div class="row">
+		<div class="col-xs-6">
+			<%= link_to(upvote_player_path(@player1), method: :post) do %>
+				<div class="pull-right panel panel-default">
+					<%= (image_tag(@player1.image.url(), :class=>"img-responsive")) %>
+					<div class="panel-body">
+						<%= @player1.name %> 
+						<%= link_to(flag_player_path(@player1), method: :post, data: { confirm: 'Are you sure you want to flag this image as offensive, or against our rules?  This image will be removed from all battles until a moderator reviews it.' }) do %>
+							<span class="glyphicon glyphicon-flag"></span>
+						<% end %> <!-- end of link to fla -->
+					</div>
+				</div> <!-- end pull right -->
+			<% end %> <!-- end link ruby block -->
+		</div>
+
+		<div class="col-xs-6">
+			<%= link_to(upvote_player_path(@player2), method: :post) do %>
+				<div class="pull-left panel panel-default">
+					<%= (image_tag(@player2.image.url(), :class=>"img-responsive")) %>
+					<div class="panel-body">
+						<%= @player2.name %> 
+						<%= link_to(flag_player_path(@player2), method: :post, data: { confirm: 'Are you sure you want to flag this image as offensive, or against our rules?  This image will be removed from all battles until a moderator reviews it.' }) do %>
+							<span class="glyphicon glyphicon-flag"></span>
+						<% end %> <!-- end of link to fla -->
+					</div>
+				</div> <!-- end pull left -->
+			<% end %> <!-- end link ruby block -->
+		</div>
+	</div> <!-- end div class row -->
+	<div class="row">
+		<div class="col-xs-12">
+			<div id="champion" class="center">
+				Want to see who the current <%= link_to "champion", champion_path %> is?
+			</div> <!-- end champion div -->
+		</div> <!-- end col 12 class -->
+	</div> <!-- end class row -->
+	<div class="row">
+		<div class="col-xs-12">
+			<div id="email" class="center">
+				Click here to <%= link_to "Get Email Updates", "http://eepurl.com/beIC91", class: "btn btn-primary" %> of the cutest fluffiest battles. 
+			</div> <!-- end email div -->
+		</div> <!-- end col 12 class -->
+	</div> <!-- end class row -->
+
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="adsense">
+				<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+				<!-- cutefluffybattle_home_page -->
+				<ins class="adsbygoogle"
+				style="display:inline-block;width:728px;height:90px"
+				data-ad-client="ca-pub-7611006142520762"
+				data-ad-slot="4005203372"></ins>
+				<script>
+				(adsbygoogle = window.adsbygoogle || []).push({});
+				</script>
+			</div> <!-- end adsense class -->
+		</div> <!-- end col 12 class -->
+	</div> <!-- end class row -->
+</div> <!-- end container div -->
