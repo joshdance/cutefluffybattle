@@ -1,9 +1,3 @@
-<% if current_user.try(:admin?) %>
-  # do something admin
-<% else %>
- NOT ADMIN
-<% end %>
-
 <% if user_signed_in? %>
 	<!-- do something -->
 <% else %>
@@ -30,9 +24,12 @@
 			<div class="col-xs-6">
 				<%= link_to(upvote_player_path(@player1), method: :post) do %>
 					<div class="pull-right box panel panel-default">
-						<%= (image_tag(@player1.image.url(:medium), :class=>"img-responsive")) %>
+						<%= (image_tag(@player1.image.url(), :class=>"img-responsive")) %>
 						<div class="panel-body">
-							<%= @player1.name %>
+							<%= @player1.name %> 
+							<%= link_to(flag_player_path(@player1), method: :post, data: { confirm: 'Are you sure you want to flag this image as offensive, or against our rules?  This image will be removed from all battles until a moderator reviews it.' }) do %>
+								<span class="glyphicon glyphicon-flag"></span>
+							<% end %> <!-- end of link to fla -->
 						</div>
 					</div> <!-- end pull right -->
 				<% end %> <!-- end link ruby block -->
@@ -41,9 +38,12 @@
 			<div class="col-xs-6">
 				<%= link_to(upvote_player_path(@player2), method: :post) do %>
 					<div class="pull-left box panel panel-default">
-						<%= (image_tag(@player2.image.url(:medium), :class=>"img-responsive")) %>
+						<%= (image_tag(@player2.image.url(), :class=>"img-responsive")) %>
 						<div class="panel-body">
-							<%= @player2.name %>
+							<%= @player2.name %> 
+							<%= link_to(flag_player_path(@player2), method: :post, data: { confirm: 'Are you sure you want to flag this image as offensive, or against our rules?  This image will be removed from all battles until a moderator reviews it.' }) do %>
+								<span class="glyphicon glyphicon-flag"></span>
+							<% end %> <!-- end of link to fla -->
 						</div>
 					</div> <!-- end pull left -->
 				<% end %> <!-- end link ruby block -->
@@ -57,4 +57,5 @@
 		<div id="email" class="center">
 			Click here to <%= link_to "Get Email Updates", "http://eepurl.com/beIC91", class: "btn btn-primary" %> of the cutest fluffiest battles. 
 		</div> <!-- end email div -->
+		</br>
 	</div> <!-- end container div -->

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150223202014) do
+ActiveRecord::Schema.define(version: 20150224230354) do
 
   create_table "players", force: :cascade do |t|
     t.string   "name"
@@ -24,7 +24,12 @@ ActiveRecord::Schema.define(version: 20150223202014) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.integer  "user_id"
+    t.boolean  "flagged"
+    t.integer  "flagged_by_user_id"
   end
+
+  add_index "players", ["user_id"], name: "index_players_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -40,6 +45,7 @@ ActiveRecord::Schema.define(version: 20150223202014) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "admin"
+    t.string   "name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

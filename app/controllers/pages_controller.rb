@@ -19,4 +19,8 @@ class PagesController < ApplicationController
   	@champion = Player.order('win_percentage DESC').first
   end
 
+  def admin
+    @players = Player.all.where(flagged: true)
+  end
+
 end

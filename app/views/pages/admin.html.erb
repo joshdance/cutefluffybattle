@@ -1,0 +1,54 @@
+<div id="main-container" class="container">
+	<div class="row">
+		<div class="col-xs-12 center-block center">
+
+<% if (!current_user.try(:admin?)) %>
+	<div class="center">
+		<h1>Oooh! You found our <strong>super secret page</strong> for Administrators.</h1>
+		Want in on the action? Email us and let us know why you want to be made a moderator. 
+	</div>
+	<div>
+		<%= image_tag("https://s3.amazonaws.com/cutefluffybattle/cutefluffybattle_static_assets/evil_raccoon.jpg", :alt => "Evil Raccoon. Soon. Very soon.", :class=>"img-responsive") %>
+	</div>
+	</div> <!-- end row -->
+<% else %>
+	You are an admin! Feel the power. 
+	<div>
+		<strong>Flags to Be Reviewed:</strong>
+	</div>
+	<div class="flagged_players">
+		<% if (!@players.any?) %>
+			All flags have been reviewed! You are a skilled metalworker. 
+		<% else %>
+			<table>
+	  <thead>
+	    <tr>
+	      <th>Name</th>
+	      <th>Wins</th>
+	      <th>Matches</th>
+	      <th>Win percentage</th>
+	      <th>User ID</th>
+	      <th colspan="3"></th>
+	    </tr>
+	  </thead>
+
+	<tbody>
+	    <% @players.each do |player| %>
+	      <tr>
+	        <td><%= player.name %></td>
+	        <td><%= player.wins %></td>
+	        <td><%= player.matches %></td>
+	        <td><%= player.win_percentage %></td>
+	        <td><%= player.user_id %></td>
+	        <td><%= link_to 'Show', player %></td>
+		    <td><%= link_to 'Admin Edit', edit_player_path(player) %></td>
+		    <td><%= link_to 'Admin Destroy', player, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	      	<td><%= link_to(clear_flag_player_path(player), method: :post) do %>
+				Clear Flag
+			<% end %> <!-- end of link to clear_flag -->
+	      </tr>
+	    <% end %> <!-- end player each do -->
+	  </tbody>
+		<% end %> <!-- end if any flags -->
+	</div>
+<% end %> <!-- end admin check -->

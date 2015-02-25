@@ -5,12 +5,14 @@ Rails.application.routes.draw do
   resources :players do
     member do
       post 'upvote'
+      post 'flag'
+      post 'clear_flag'
     end
   end
 
   get "about" => "pages#about"
   get "champion" => "pages#champion"
-
+  get "admin" => "pages#admin"
   get 'pages/home'
 
   # The priority is based upon order of creation: first created -> highest priority.

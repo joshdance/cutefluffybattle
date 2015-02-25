@@ -1,6 +1,9 @@
 class PlayersController < ApplicationController
-  before_filter :authenticate_user!, :except => [:show, :index]  
+  #anyone can view all the players and individual players. 
+  #have to login to edit and or create new ones. 
+  before_filter :authenticate_user!, :except => [:show, :index, :upvote]  
   before_action :set_player, only: [:show, :edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   # GET /players
   # GET /players.json
@@ -15,7 +18,8 @@ class PlayersController < ApplicationController
 
   # GET /players/new
   def new
-    @player = Player.new
+    #this makes the new pin
+    @player = current_user.players.build
   end
 
   # GET /players/1/edit
@@ -25,7 +29,8 @@ class PlayersController < ApplicationController
   # POST /players
   # POST /players.json
   def create
-    @player = Player.new(player_params)
+    #this is what pulls in the parameters from the form
+    @player = current_user.players.build(player_params)
 
     respond_to do |format|
       if @player.save
@@ -70,6 +75,24 @@ class PlayersController < ApplicationController
     redirect_to :back
   end
 
+  def flag
+    @user = current_user;
+    @player = Player.find(params[:id])
+    @player.flagged = true
+    @player.flagged_by_user_id = @user.id
+    @player.save
+    redirect_to :back
+  end
+
+  def clear_flag
+    @user = current_user;
+    @player = Player.find(params[:id])
+    @player.flagged = false
+    @player.flagged_by_user_id = @user.id
+    @player.save
+    redirect_to :back
+  end
+
   def calc_win_percentage(player)
     player.win_percentage = player.wins.fdiv(player.matches)
     player.save
@@ -80,6 +103,14 @@ class PlayersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_player
       @player = Player.find(params[:id])
+    end
+
+    def correct_user
+      #correct_user gets run as a before action for the editing actions
+      #try to look up the player by the user.
+      @player = current_user.players.find_by(id: params[:id])
+      #if doesn't exist, they don't have permission to edit
+      redirect_to players_path, notice: "Tricky. You can't edit this fluffy player" if @player.nil?
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
