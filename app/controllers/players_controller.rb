@@ -108,9 +108,11 @@ class PlayersController < ApplicationController
     def correct_user
       #correct_user gets run as a before action for the editing actions
       #try to look up the player by the user.
-      @player = current_user.players.find_by(id: params[:id])
       #if doesn't exist, they don't have permission to edit
-      redirect_to players_path, notice: "Tricky. You can't edit this fluffy player" if @player.nil?
+      if (!current_user.try(:admin?))
+        @player = current_user.players.find_by(id: params[:id])
+        redirect_to players_path, notice: "Tricky. You can't edit this fluffy player" if @player.nil?
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
