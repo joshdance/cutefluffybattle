@@ -5,3 +5,29 @@
 .glyphicon-flag {
 	float: right;
 }
+
+@media (max-width: 480px) {
+	.col-xs-6 {
+      padding:0;
+      margin:0;
+    }
+
+    #main-container {
+      padding:1;
+      padding-left:1;
+      padding-right:1;
+      margin:0;
+    }
+
+    .container {
+      padding:1 !important;
+      padding-left:1;
+      padding-right:1;
+      margin:0;
+    }
+
+    body {
+      padding:0;
+    }
+
+}
