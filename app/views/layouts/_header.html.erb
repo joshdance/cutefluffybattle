@@ -16,6 +16,11 @@
       <li><%= link_to("About", about_path) %></li> 
       <li><%= link_to "Champion", champion_path %></li> 
       <% if user_signed_in? %>
+        <li>
+          <%= link_to new_player_path do%>
+            <span class="glyphicon glyphicon-plus"></span> Add a Player
+          <% end %>
+        </li> <!-- end new pin line -->
         <% if current_user.try(:admin?) %>
           <li><%= link_to "Admin", admin_path %></li>
         <% end %> <!-- end admin test -->

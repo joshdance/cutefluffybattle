@@ -6,8 +6,8 @@
 	</div>
 	<div class="row row-centered">
 		<div class="col-xs-12">
-			<div class="box panel panel-default">
-				<%= (image_tag(@champion.image.url(:medium), :class=>"img-responsive")) %>
+			<div class="center">
+				<%= (image_tag(@champion.image.url(), :class=>"img-responsive")) %>
 				<div class="panel-body">
 					<%= @champion.name %>
 				</div>

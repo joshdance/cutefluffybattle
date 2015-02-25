@@ -10,32 +10,39 @@
 <% end %> <!-- end if user signed in check -->
 
 
-<h1>Listing Players</h1>
-hello
-<div id="pins">
-  <% @players.each do |player| %>
-  <div class="box">
-    <%= image_tag player.image.url(:medium) %>
-    <%= player.name %>
-    <%= player.wins %>
-    <%= player.matches %>
-    <%= player.win_percentage %>
-    <%= player.user_id %>
-    <%= link_to 'Show', player %>
-
-    <% if (player.user == current_user) %>
-        <%= link_to 'Edit', edit_player_path(player) %>
-        <%= link_to 'Destroy', player, method: :delete, data: { confirm: 'Are you sure?' } %>
-      <% end %> <!-- end if current player -->
-
-      <% if (current_user.try(:admin?)) %>
-        <%= link_to 'Admin Edit', edit_player_path(player) %>
-        <%= link_to 'Admin Destroy', player, method: :delete, data: { confirm: 'Are you sure?' } %>
-      <% end %> <!-- end if admin  -->
-    <% end %> <!-- end each player do block -->
-  </div> <!-- end div class box -->
-</div> <!-- end id pins -->
-hello
-<br>
+<div id="pins" class="transitions-enabled">
+  <% @players.each do |player| %> <!-- @players comes from the controller, player is only inside the block -->
+    <div class="box panel panel-default">
+      <%= link_to image_tag(player.image.url(:medium)), player %>
+      <div class="panel-body">
+        <%= link_to player.name, player %>
+        <div class="username">
+          <%= player.user.name if player.user %>
+        </div> <!-- end class username -->
+        <% if player.user == current_user %>
+        <div class="actions">
+          <%= link_to edit_player_path(player) do %>
+            <span class="glyphicon glyphicon-pencil"></span>
+            Edit
+          <% end %>
+          <%= link_to player, method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <span class="glyphicon glyphicon-trash"></span>
+            Delete
+          <% end %>
+          <div>
+            <% if (current_user.try(:admin?)) %>
+              <td><%= link_to 'Admin Edit', edit_player_path(player) %></td>
+              <td><%= link_to 'Admin Destroy', player, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
+          </div>
+          <div>
+            Wins: <%= (number_to_percentage((player.win_percentage*100), precision: 0))%> of battles
+          </div>
+        </div> <!-- end div class actions -->
+        <% end %>
+      </div> <!-- end panel body -->
+    </div> <!-- end class=box for each player -->
+  <% end %> <!-- end do each -->
+</div> <!-- end id=players div -->
 
 
