@@ -19,7 +19,7 @@
 
 <p>
   <strong>Win percentage:</strong>
-  <%= @player.win_percentage %>
+  <%= (number_to_percentage((player.win_percentage*100), precision: 0))%>
 </p>
 
 <p>
