@@ -16,17 +16,17 @@
 	</div>
 <% end %>  <!-- end not logged in else -->
 
-<p>
-  <% if !mobile_device? %>
-    <%= "Full Site" %>
-  <% else %>
-    <%= "Mobile Site" %>
-  <% end %>
-</p>
+<% if browser.mobile? %>
+	<div class="center center-block">
+		<h3>Which is cuter? Tap your choice!</h3>
+	</div>
+<% else %>
+	<div class="center center-block">
+		<h3>Which is cuter? Click your choice!</h3>
+	</div>
+<% end %>
 
-<div class="center center-block">
-	<p>Which is cuter?</p>
-</div>
+
 
 <div id="main-container" class="container">
 	<div class="row">
