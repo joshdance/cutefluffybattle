@@ -18,30 +18,33 @@
         <%= link_to player.name, player %>
         <div class="username">
           <%= player.user.name if player.user %>
-        </div> <!-- end class username -->
+        </div>
+
         <% if player.user == current_user %>
-        <div class="actions">
-          <%= link_to edit_player_path(player) do %>
-            <span class="glyphicon glyphicon-pencil"></span>
-            Edit
-          <% end %>
-          <%= link_to player, method: :delete, data: { confirm: 'Are you sure?' } do %>
-            <span class="glyphicon glyphicon-trash"></span>
-            Delete
-          <% end %>
-          <div>
-            <% if (current_user.try(:admin?)) %>
-              <td><%= link_to 'Admin Edit', edit_player_path(player) %></td>
-              <td><%= link_to 'Admin Destroy', player, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-            <% end %>
-          </div>
-          <div>
-            Wins: <%= (number_to_percentage((player.win_percentage*100), precision: 0))%> of battles
-          </div>
-        </div> <!-- end div class actions -->
-        <% end %>
-      </div> <!-- end panel body -->
-    </div> <!-- end class=box for each player -->
+          <div class="actions">
+            <%= link_to edit_player_path(player) do %>
+              <span class="glyphicon glyphicon-pencil"></span>
+              Edit
+            <% end %> <!-- end of link to play edit do -->
+            <%= link_to player, method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <span class="glyphicon glyphicon-trash"></span>Delete
+            <% end %> <!-- end of link to player delete -->
+          </div> <!-- end div class actions -->
+        <% end %> <!-- end of if current player -->
+
+      </div> <!-- end panel-body -->
+
+        <% if (current_user.try(:admin?)) %>
+          <div class="panel-footer">
+            <td><%= link_to 'Admin Edit', edit_player_path(player) %></td>
+            <td><%= link_to 'Admin Destroy', player, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <div>
+              Wins: <%= (number_to_percentage((player.win_percentage*100), precision: 0))%> of battles
+            </div>
+          </div> <!-- end panel footer class -->
+        <% end %> <!-- end if user is admin -->
+
+    </div> <!-- end panel for each player -->
   <% end %> <!-- end do each -->
 </div> <!-- end id=players div -->
 
