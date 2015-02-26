@@ -16,6 +16,14 @@
 	</div>
 <% end %>  <!-- end not logged in else -->
 
+<p>
+  <% if !mobile_device? %>
+    <%= "Full Site" %>
+  <% else %>
+    <%= "Mobile Site" %>
+  <% end %>
+</p>
+
 <div class="center center-block">
 	<p>Which is cuter?</p>
 </div>
