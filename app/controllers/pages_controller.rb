@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def home
-  	players = Player.limit(2).order("RANDOM()")
+  	players = Player.limit(2).order("RANDOM()").where(flagged: !true)
   	# postgresql
 	@player1 = players[0]
   	@player2 = players[1]

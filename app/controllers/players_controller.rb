@@ -8,7 +8,7 @@ class PlayersController < ApplicationController
   # GET /players
   # GET /players.json
   def index
-    @players = Player.all
+    @players = Player.all.where(flagged: !true)
   end
 
   # GET /players/1
