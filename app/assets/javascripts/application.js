@@ -15,6 +15,3 @@
 //= require bootstrap
 //= require masonry/jquery.masonry
 //= require_tree .
-
-document.addEventListener("touchstart", function() {},false); //enables active states http://alxgbsn.co.uk/2011/10/17/enable-css-active-pseudo-styles-in-mobile-safari/
-
