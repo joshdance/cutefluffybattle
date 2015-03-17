@@ -36,3 +36,6 @@ bower.json
 
 # Ignore pow environment settings
 .powenv
+
+#ignore .env files to not expose secrets
+.env
