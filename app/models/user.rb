@@ -34,5 +34,6 @@ class User < ActiveRecord::Base
   def send_notification
     #instance method so pass in self which is current user
     AdminMailer.new_user(self).deliver
+    UserMailer.send_welcome_email(self).deliver
   end #end send_notification
 end
